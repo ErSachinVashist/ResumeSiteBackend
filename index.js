@@ -13,5 +13,5 @@ const express = require('express'),
 // app.use('/', router);
 
 
-app.get('/', (req, res) => res.render('pages/index'))
+app.get('/', (req, res) => res.send('Server Started'))
     .listen(PORT, () => console.log(`Server Started on ${PORT}`))
