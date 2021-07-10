@@ -6,7 +6,7 @@ const express = require('express'),
     router = require('./router/routes'),
     mongoDb = require('./dbConnect');
     
-PORT = process.env.PORT || 4000;
+PORT = process.env.PORT || 5000;
 app.use(cors())
 mongoDb.connect();
 app.use(bodyParser.json())
