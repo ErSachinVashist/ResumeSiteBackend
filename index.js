@@ -7,11 +7,9 @@ const express = require('express'),
     mongoDb = require('./dbConnect'),
     PORT = process.env.PORT || 5000;
 
-// app.use(cors())
-// mongoDb.connect();
-// app.use(bodyParser.json())
-// app.use('/', router);
+app.use(cors())
+mongoDb.connect();
+app.use(bodyParser.json())
+app.use('/', router);
 
-
-app.get('/', (req, res) => res.send('Server Started'))
-    .listen(PORT, () => console.log(`Server Started on ${PORT}`))
+app.listen(PORT, () => console.log(`Server Started on ${PORT}`))
