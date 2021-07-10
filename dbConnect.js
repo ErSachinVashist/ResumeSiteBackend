@@ -5,6 +5,7 @@ const client = new MongoClient(config.mongoUrl, { useNewUrlParser: true, useUnif
 module.exports = {
     connect: (cb) => {
         client.connect(function (err) {
+            console.log(config)
             if(err) return console.log("Database failed to connect  : ",err.message)
             console.log('Database Connected');
             global._db=client.db(config.dbName);
