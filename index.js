@@ -4,14 +4,14 @@ const express = require('express'),
     bodyParser = require('body-parser'),
     app = express(),
     router = require('./router/routes'),
-    mongoDb = require('./dbConnect');
-    
-PORT = process.env.PORT || 5000;
-app.use(cors())
-mongoDb.connect();
-app.use(bodyParser.json())
-app.use('/', router);
+    mongoDb = require('./dbConnect'),
+    PORT = process.env.PORT || 5000;
 
-app.listen(PORT, () => {
-    console.log('Server Started on port', PORT)
-})
+// app.use(cors())
+// mongoDb.connect();
+// app.use(bodyParser.json())
+// app.use('/', router);
+
+
+app.get('/', (req, res) => res.render('pages/index'))
+    .listen(PORT, () => console.log(`Server Started on ${PORT}`))
