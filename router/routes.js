@@ -13,7 +13,7 @@ fs.readdirSync(__dirname).forEach(function (file) {
 
 router.use('/api/:type', (req, res, next) => {
     if (!methods[req.params.type]) {
-        return res.json({ error: 'Unknow API Endpoint' })
+        return res.json({ error: 'Invalid API Endpoint' })
     }
     return next()
 });
