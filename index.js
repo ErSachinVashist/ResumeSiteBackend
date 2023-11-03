@@ -5,7 +5,7 @@ const express = require('express'),
     app = express(),
     router = require('./router/routes'),
     mongoDb = require('./dbConnect'),
-    PORT = process.env.PORT || 5000;
+    PORT = process.env.PORT || 8080;
 
 app.use(cors())
 mongoDb.connect();
