@@ -1,15 +1,18 @@
 require('dotenv').config()
-const express = require('express'),
-    cors = require('cors'),
-    bodyParser = require('body-parser'),
-    app = express(),
-    router = require('./routes'),
-    mongoDb = require('./dbConnect'),
-    PORT = process.env.PORT || 8080;
+
+const express = require('express')
+const cors = require('cors')
+const app = express()
+const connectDB = require('./dbConnect')
+const router = require('./routes')
+const PORT = process.env.PORT || 8080
+
+connectDB()
 
 app.use(cors())
-mongoDb.connect();
-app.use(bodyParser.json())
+app.use(express.json())
 app.use('/', router);
 
-app.listen(PORT, () => console.log(`Server Started on ${PORT}`))
+app.listen(PORT, () => {
+    console.log("Server is running on port " + PORT)
+})

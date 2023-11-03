@@ -1,7 +1,9 @@
+const Feedback = require('../../models/feedback.model')
+
 module.exports = (req, res) => {
-    const collection = global._db.collection('feedbacks');
-    collection.find({}).toArray((err, docs) => {
-        if (err) console.log(err.message)
-        res.send(err ? { error: err.message } : docs)
+    Feedback.find({}).then(data => {
+        res.send(data)
+    }).catch(err => {
+        res.send({ error: err.message })
     });
 }
