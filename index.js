@@ -3,7 +3,7 @@ const express = require('express'),
     cors = require('cors'),
     bodyParser = require('body-parser'),
     app = express(),
-    router = require('./router/routes'),
+    router = require('./routes'),
     mongoDb = require('./dbConnect'),
     PORT = process.env.PORT || 8080;
 

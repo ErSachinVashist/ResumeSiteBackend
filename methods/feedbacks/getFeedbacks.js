@@ -1,4 +1,4 @@
-module.exports = (Feedback, req, res) => {
+module.exports = (req, res) => {
     const collection = global._db.collection('feedbacks');
     collection.find({}).toArray((err, docs) => {
         if (err) console.log(err.message)
